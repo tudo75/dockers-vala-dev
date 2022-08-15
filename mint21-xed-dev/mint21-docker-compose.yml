@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  valagtk4:
+    image: mint21xeddev
+    container_name: mint21-xed-dev
+    command: /bin/bash
+    environment:
+      - DISPLAY
+      - GTK_THEME=Adwaita:dark
+    volumes:
+      - "$HOME/.Xauthority:/home/valauser/.Xauthority:rw"
+      - "$HOME/dev_projects/:/home/valauser/dev_projects/"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    network_mode: "host"
+    stdin_open: true
+    tty: true
+    user: "$USER_ID:$GROUP_ID"
+    build:
+      context: .
+      dockerfile: ./mint21-amd64.Dockerfile
+      args:
+        - GID=$USER_ID    # export USER_ID=$(id -u $USER)
+        - UID=$GROUP_ID   # export GROUP_ID=$(id -g $USER)
