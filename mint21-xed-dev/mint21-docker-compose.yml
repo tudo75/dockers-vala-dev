@@ -7,7 +7,7 @@ services:
     command: /bin/bash
     environment:
       - DISPLAY
-      - GTK_THEME=Adwaita:dark
+      - GTK_THEME=Mint-Y-Dark:dark
     volumes:
       - "$HOME/.Xauthority:/home/valauser/.Xauthority:rw"
       - "$HOME/dev_projects/:/home/valauser/dev_projects/"

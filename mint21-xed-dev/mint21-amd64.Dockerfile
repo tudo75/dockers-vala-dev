@@ -2,7 +2,7 @@
 FROM ubuntu:22.04
 
 # set docker label
-LABEL Name=mint21xeddev Version=0.0.1
+LABEL Name=mint21xeddev Version=0.0.2
 
 # set user and group with same UID/GID of the current user to avoid rights issues 
 ARG UID
@@ -71,7 +71,7 @@ RUN echo "" > /etc/apt/sources.list
 # Update APT cache.
 RUN apt-get update
 
-###################################
+################################### 
 # Apply updates
 ###################################
 
@@ -81,4 +81,24 @@ RUN apt-get --yes dist-upgrade
 # Install stuff
 ###################################
 
-RUN apt-get --yes install software-properties-common build-essential fakeroot dh-make automake cmake python3 meson ninja-build valac libgtk-3-dev libgtksourceview-4-dev libpeas-dev libgee-0.8-dev libjson-glib-dev xed-dev libxapp-dev
+RUN apt-get --yes install \
+    automake \
+    build-essential \
+    cmake \
+    dh-make \
+    fakeroot \
+    libgee-0.8-dev \
+    libgtk-3-dev \
+    libgtksourceview-4-dev \
+    libjson-glib-dev \
+    libpeas-dev \
+    libxapp-dev \
+    meson \
+    mint-themes \
+    mint-y-icons \
+    ninja-build \
+    python3 \
+    software-properties-common \
+    valac \
+    xed \
+    xed-dev
